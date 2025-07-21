@@ -23,7 +23,7 @@ const app = express();
 
 // CORS Middleware
 app.use(cors({
-  origin: [process.env.CLIENT_URL, "http://localhost:5173"],
+  origin: ["https://matrimon-xpmw.vercel.app", "http://localhost:5173"],
   credentials: true
 }));
 
@@ -49,7 +49,7 @@ app.use(errorHandler);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: ["https://matrimon-xpmw.vercel.app", "http://localhost:5173"],
     credentials: true,
   },
 });
