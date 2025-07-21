@@ -1,4 +1,4 @@
-// server.js
+// index.js
 import http from 'http';
 import { Server } from 'socket.io';
 import express from 'express';
@@ -8,21 +8,26 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import messageRoutes from './routes/messageRoutes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import cookieParser from 'cookie-parser';
-import messageRoutes from './routes/messageRoutes.js';
 
-
+// Load env vars
 dotenv.config();
+
+// Connect MongoDB
 connectDB();
 
+// Initialize Express
 const app = express();
 
-// Middleware
+// CORS Middleware
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: process.env.CLIENT_URL || "http://localhost:5173",
   credentials: true
 }));
+
+// JSON and Cookies Middleware
 app.use(express.json());
 app.use(cookieParser());
 
@@ -30,23 +35,22 @@ app.use(cookieParser());
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/admin', adminRoutes);
-
-// Add this below other routes
 app.use('/api/messages', messageRoutes);
 
-// Error handlers
+// Error Middlewares
 app.use(notFound);
 app.use(errorHandler);
 
-// 🧠 Socket.IO setup
+// Socket.IO Setup
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_URL || "http://localhost:5173",
     credentials: true,
   },
 });
 
+// Socket events
 io.on('connection', (socket) => {
   console.log('🟢 New client connected:', socket.id);
 
@@ -59,8 +63,8 @@ io.on('connection', (socket) => {
   });
 });
 
-// Start server
+// Start Server (important: use server.listen)
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
