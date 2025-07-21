@@ -8,7 +8,7 @@ export default function Home() {
       <img
         src={weddingImg || "https://via.placeholder.com/150?text=No+Image"}
         alt="Wedding Theme"
-        className="w-32 h-32 rounded-full border object-cover mb-6"
+        className="w-[90vh] h-[60vh] border object-cover mb-6"
         onError={(e) => {
           e.target.onerror = null;
           e.target.src = "https://via.placeholder.com/150?text=No+Image";
