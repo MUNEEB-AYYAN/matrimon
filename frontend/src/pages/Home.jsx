@@ -3,12 +3,12 @@ import weddingImg from "../assets/wedding.jpg"; // Ensure this exists
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-base-200 text-center p-8">
+    <div className="flex flex-col items-center justify-center bg-base-200 text-center p-8">
       {/* Wedding/Profile Image */}
       <img
         src={weddingImg || "https://via.placeholder.com/150?text=No+Image"}
         alt="Wedding Theme"
-        className="w-[90vh] h-[60vh] border object-cover mb-6"
+        className="w-[90vh] h-[60vh] rounded-2xl border object-cover mb-6"
         onError={(e) => {
           e.target.onerror = null;
           e.target.src = "https://via.placeholder.com/150?text=No+Image";
