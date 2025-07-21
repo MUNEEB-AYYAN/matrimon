@@ -23,9 +23,10 @@ const app = express();
 
 // CORS Middleware
 app.use(cors({
-  origin: ['https://matrimon-xpmw.vercel.app'],
-  credentials: true
+  origin: ["http://localhost:5173", "https://matrimon-xpmw.vercel.app"],
+  credentials: true,
 }));
+
 
 app.get('/', (req, res) => {
   res.send('Welcome to Matrimony Backend API 1_');
