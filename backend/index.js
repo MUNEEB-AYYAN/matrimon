@@ -27,6 +27,10 @@ app.use(cors({
   credentials: true
 }));
 
+app.get('/', (req, res) => {
+  res.send('Welcome to Matrimony Backend API');
+});
+
 // JSON and Cookies Middleware
 app.use(express.json());
 app.use(cookieParser());
