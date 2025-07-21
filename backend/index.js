@@ -22,10 +22,13 @@ connectDB();
 const app = express();
 
 // CORS Middleware
-app.use(cors({
-  origin: ["https://matrimon-xpmw.vercel.app", "http://localhost:5173"],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://matrimon-xpmw.vercel.app"],
+    credentials: true,
+  })
+);
+
 
 app.get('/', (req, res) => {
   res.send('Welcome to Matrimony Backend API 1_');
@@ -49,10 +52,12 @@ app.use(errorHandler);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["https://matrimon-xpmw.vercel.app", "http://localhost:5173"],
+    origin: ["http://localhost:5173", "https://matrimon-xpmw.vercel.app"],
+    methods: ["GET", "POST"],
     credentials: true,
   },
 });
+
 
 // Socket events
 io.on('connection', (socket) => {
