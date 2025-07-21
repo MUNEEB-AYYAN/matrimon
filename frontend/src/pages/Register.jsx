@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
-import Profile from "./Profile";
 
 const CLOUD_NAME = "dcgbuq0lu";
 const UPLOAD_PRESET = "matrimony_unsigned";
@@ -140,17 +139,11 @@ export default function Register() {
           />
 
           {imgPreview && (
-           <img
-  src={Profile.image || "https://via.placeholder.com/150?text=No+Image"}
-  alt="Profile"
-  className="w-24 h-24 rounded-full border object-cover"
-  onError={(e) => {
-    if (e.target.src !== "https://via.placeholder.com/150?text=No+Image") {
-      e.target.src = "https://via.placeholder.com/150?text=No+Image";
-    }
-  }}
-/>
-
+            <img
+              src={imgPreview}
+              alt="preview"
+              className="w-20 h-20 rounded-full mx-auto"
+            />
           )}
 
           {errorMsg && <div className="text-error text-sm">{errorMsg}</div>}
