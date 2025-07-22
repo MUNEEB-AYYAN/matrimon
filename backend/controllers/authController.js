@@ -1,88 +1,3 @@
-// // controllers/authController.js
-// import asyncHandler from 'express-async-handler';
-// import User from '../models/userModel.js';
-// import bcrypt from 'bcryptjs';
-// import { generateToken } from '../utils/generateToken.js';
-
-// // @desc    Register user
-// export const registerUser = asyncHandler(async (req, res) => {
-//   const { name, email, password, phone, age, gender, image } = req.body;
-
-//   const userExists = await User.findOne({ email });
-//   if (userExists) {
-//     res.status(400);
-//     throw new Error('User already exists');
-//   }
-
-//   // ✅ Hash password here
-//   const hashedPassword = await bcrypt.hash(password, 10);
-
-//   const user = await User.create({
-//     name,
-//     email,
-//     phone,
-//     age,
-//     gender,
-//     avatar: image,
-//     password: hashedPassword,
-//   });
-
-//   if (user) {
-//     generateToken(res, user._id);
-//     res.status(201).json({
-//       _id: user._id,
-//       name: user.name,
-//       email: user.email,
-//       phone: user.phone,
-//       age: user.age,
-//       gender: user.gender,
-//       avatar: user.avatar,
-//       isAdmin: user.isAdmin,
-//     });
-//   } else {
-//     res.status(400);
-//     throw new Error('Invalid user data');
-//   }
-// });
-
-// // @desc    Login user
-// export const loginUser = asyncHandler(async (req, res) => {
-//   const { email, password } = req.body;
-
-//   const user = await User.findOne({ email });
-
-//   // ✅ Check password using bcrypt
-//   const isPasswordValid = user && (await bcrypt.compare(password, user.password));
-
-//   if (!isPasswordValid) {
-//     res.status(401);
-//     throw new Error('Invalid email or password');
-//   }
-
-//   generateToken(res, user._id);
-
-//   res.status(200).json({
-//     _id: user._id,
-//     name: user.name,
-//     email: user.email,
-//     phone: user.phone,
-//     isAdmin: user.isAdmin,
-//   });
-// });
-
-// // @desc    Logout user
-// export const logoutUser = asyncHandler(async (req, res) => {
-//   res.cookie('jwt');
-//   res.status(200).json({ message: 'Logged out successfully' });
-// });
-
-// // @desc    Get current logged-in user
-// export const getCurrentUser = asyncHandler(async (req, res) => {
-//   const user = await User.findById(req.user._id).select('-password');
-//   res.status(200).json(user);
-// });
-
-
 // controllers/authController.js
 
 import asyncHandler from 'express-async-handler';
@@ -165,9 +80,10 @@ export const loginUser = asyncHandler(async (req, res) => {
     throw new Error("Invalid email or password");
   }
 
-  const token = generateToken(res, user._id);
+  const token = generateToken(user._id); // Just return the token
 
   res.status(200).json({
+    token, // frontend will store this in localStorage
     user: {
       _id: user._id,
       name: user.name,
@@ -176,9 +92,8 @@ export const loginUser = asyncHandler(async (req, res) => {
       age: user.age,
       gender: user.gender,
       avatar: user.avatar,
-      role: user.role, // assumed role: 'user' or 'admin'
+      role: user.role,
     },
-    token,
   });
 });
 // @desc    Logout user (clear cookie)
