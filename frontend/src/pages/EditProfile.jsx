@@ -26,7 +26,7 @@ export default function EditProfile() {
         setForm(res.data);
         setImgPreview(res.data.image);
       } catch (err) {
-        setErrorMsg("Failed to load profile");
+        setErrorMsg("Failed to load profile",err);
       }
     };
     fetchProfile();
