@@ -31,6 +31,9 @@ export default function Login() {
       localStorage.setItem("user", JSON.stringify(res.data.user));
       localStorage.setItem("token", res.data.token);
 
+      // ✅ Set Axios default Authorization header
+      axios.defaults.headers.common["Authorization"] = `Bearer ${res.data.token}`;
+
       // ✅ Set in Context
       setUser(res.data.user);
       setToken(res.data.token);

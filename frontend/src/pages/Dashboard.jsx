@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+// import  { Axios } from "axios";
+import axiosInstance from "../../utils/axiosInstance";
 
 export default function Dashboard() {
   const { user, logout } = useAuth();
@@ -13,7 +14,7 @@ export default function Dashboard() {
   // ✅ Fetch profile from server directly
   const fetchMyProfile = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/users/profile/me", {
+      const res = await axiosInstance.get("/users/profile/me", {
         withCredentials: true,
       });
 

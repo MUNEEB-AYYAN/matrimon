@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Profile from "./Profile";
+import axiosInstance from "../../utils/axiosInstance";
 
 export default function EditProfile() {
   const [form, setForm] = useState({
@@ -20,7 +21,7 @@ export default function EditProfile() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/users/profile/me", {
+        const res = await axiosInstance.get("/users/profile/me", {
           withCredentials: true,
         });
         setForm(res.data);
