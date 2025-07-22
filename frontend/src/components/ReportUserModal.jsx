@@ -8,7 +8,7 @@ const ReportUserModal = ({ userId, reportedName, onClose }) => {
   const handleReport = async () => {
     try {
       setLoading(true);
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("token",res.data.token);
       const { data } = await axios.post(
         `/api/users/report/${userId}`,
         {},
