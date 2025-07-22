@@ -80,10 +80,9 @@ export const loginUser = asyncHandler(async (req, res) => {
     throw new Error("Invalid email or password");
   }
 
-  const token = generateToken(user._id); // Just return the token
+  const token = generateToken(res, user._id); // 🍪 sets cookie + returns token
 
   res.status(200).json({
-    token, // frontend will store this in localStorage
     user: {
       _id: user._id,
       name: user.name,
@@ -94,6 +93,7 @@ export const loginUser = asyncHandler(async (req, res) => {
       avatar: user.avatar,
       role: user.role,
     },
+    token, // optional if you're also using cookies
   });
 });
 // @desc    Logout user (clear cookie)
