@@ -4,7 +4,7 @@ import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
-  const { setUser,setToken } = useAuth();
+  const { setUser, setToken } = useAuth();
   const navigate = useNavigate();
 
   const [form, setForm] = useState({ email: "", password: "" });
@@ -21,17 +21,19 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", form, {
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        form,
+        { withCredentials: true }
+      );
 
-      // ✅ Save token and user to localStorage
+      // ✅ Save to localStorage
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+      localStorage.setItem("token", res.data.token);
+
+      // ✅ Set in Context
       setUser(res.data.user);
       setToken(res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
-
-      // ✅ Set user in Context
-      setUser(res.data);
 
       navigate("/dashboard");
     } catch (err) {
@@ -42,40 +44,46 @@ export default function Login() {
   };
 
   return (
-  <div className="min-h-screen bg-base-200 flex items-center justify-center p-4">
-    <div className="card w-full max-w-md shadow-2xl bg-base-100">
-      <div className="card-body space-y-4">
-        <h2 className="text-3xl font-bold text-center text-primary">🔐 Welcome Back</h2>
+    <div className="min-h-screen bg-base-200 flex items-center justify-center p-4">
+      <div className="card w-full max-w-md shadow-2xl bg-base-100">
+        <div className="card-body space-y-4">
+          <h2 className="text-3xl font-bold text-center text-primary">
+            🔐 Welcome Back
+          </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-3">
-          <input
-            name="email"
-            type="email"
-            placeholder="Email"
-            className="input input-bordered w-full"
-            onChange={handleChange}
-            required
-          />
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            className="input input-bordered w-full"
-            onChange={handleChange}
-            required
-          />
+          <form onSubmit={handleSubmit} className="space-y-3">
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              className="input input-bordered w-full"
+              onChange={handleChange}
+              required
+            />
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              className="input input-bordered w-full"
+              onChange={handleChange}
+              required
+            />
 
-          {errorMsg && <div className="text-error text-sm">{errorMsg}</div>}
+            {errorMsg && <div className="text-error text-sm">{errorMsg}</div>}
 
-          <button className="btn btn-primary w-full" disabled={loading}>
-            {loading ? "Logging in..." : "Login"}
-          </button>
-          
-          <p className="text-center">Don't have an account ? <Link to="/register" className='text-blue-500 font-bold '>Register</Link></p>
-        </form>
+            <button className="btn btn-primary w-full" disabled={loading}>
+              {loading ? "Logging in..." : "Login"}
+            </button>
+
+            <p className="text-center">
+              Don't have an account?{" "}
+              <Link to="/register" className="text-blue-500 font-bold">
+                Register
+              </Link>
+            </p>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-);
-
+  );
 }
