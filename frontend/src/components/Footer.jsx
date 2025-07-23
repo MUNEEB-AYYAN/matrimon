@@ -21,7 +21,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {/* About Section */}
         <div className="col-span-2">
-          <h3 className="text-lg font-semibold mb-4">Matrimony</h3>
+          <h3 className="text-lg font-semibold mb-4">NikahForever</h3>
           <p className="leading-relaxed text-sm">
             At Nikah Forever, we are committed to helping you find the one you are destined to spend the rest of your life with. Our goal is to make Muslim matrimony a journey of compassion and trust. As a Muslim matrimony site, we are attentive to the concerns of our Muslim brothers and sisters.
           </p>

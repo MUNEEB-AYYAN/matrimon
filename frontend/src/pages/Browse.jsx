@@ -101,12 +101,16 @@ const Browse = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((profile) => (
-            <div key={profile._id} className="border p-4 rounded shadow">
-              <h3 className="text-lg font-semibold">{profile.name}</h3>
-              <p>Age: {profile.age}</p>
-              <p>Gender: {profile.gender}</p>
-              <p>Bio: {profile.bio}</p>
-              <p>Phone: {profile.phone}</p>
+            <div key={profile._id} className="border p-4 rounded shadow flex">
+              <div>{profile.image}</div>
+              <div>
+                <h3 className="text-lg font-semibold">{profile.name}</h3>
+                <p>Age: {profile.age}</p>
+                <p>Gender: {profile.gender}</p>
+                <p>Bio: {profile.bio}</p>
+                <p>Phone: {profile.phone}</p>
+
+              </div>
             </div>
           ))}
         </div>

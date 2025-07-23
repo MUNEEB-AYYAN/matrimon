@@ -33,7 +33,7 @@ const Navbar = () => {
             <FaBars size={22} />
           </label>
           <Link to="/" className="text-2xl font-bold text-primary">
-            💍 Matrimony
+            💍 NikahForever
           </Link>
         </div>
 

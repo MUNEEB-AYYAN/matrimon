@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import axiosInstance from "../../utils/axiosInstance"; // ✅ use custom instance
 import { useAuth } from "../context/AuthContext";
 
 const CLOUD_NAME = "dcgbuq0lu";
@@ -38,14 +38,15 @@ export default function Register() {
 
     try {
       setLoading(true);
-      const res = await axios.post(
+      const res = await axiosInstance.post(
         `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
         formData
       );
-      setForm({ ...form, image: res.data.secure_url });
+      setForm((prev) => ({ ...prev, image: res.data.secure_url }));
       setImgPreview(res.data.secure_url);
     } catch (err) {
       console.error("Image upload failed:", err);
+      setErrorMsg("Image upload failed.");
     } finally {
       setLoading(false);
     }
@@ -57,7 +58,7 @@ export default function Register() {
     setLoading(true);
 
     try {
-      const res = await axios.post("https://matrimon.onrender.com/api/auth/register", form, {
+      const res = await axiosInstance.post("/auth/register", form, {
         withCredentials: true,
       });
 
@@ -68,6 +69,7 @@ export default function Register() {
       navigate("/dashboard");
     } catch (err) {
       setErrorMsg(err.response?.data?.message || "Register failed");
+      console.log(err.response?.data?.message || "Register failed");
     } finally {
       setLoading(false);
     }
@@ -146,13 +148,17 @@ export default function Register() {
             />
           )}
 
-          {errorMsg && <div className="text-error text-sm">{errorMsg}</div>}
+          {errorMsg && <div className="text-error text-sm text-center">{errorMsg}</div>}
 
           <button className="btn btn-primary w-full" disabled={loading}>
             {loading ? "Registering..." : "Register"}
           </button>
-          <p className="text-center">already have an account?  
-            <span className="mx-2 text-blue-500 font-semibold"><Link to='/login'>Login</Link></span>
+
+          <p className="text-center">
+            Already have an account?{" "}
+            <Link to="/login" className="text-blue-500 font-semibold">
+              Login
+            </Link>
           </p>
         </form>
       </div>

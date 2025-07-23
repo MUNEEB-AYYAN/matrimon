@@ -15,7 +15,7 @@ export default function Home() {
         }}
       />
 
-      <h1 className="text-4xl font-bold mb-4">💍 Matrimony Platform</h1>
+      <h1 className="text-4xl font-bold mb-4">💍 NikahForever Platform</h1>
       <p className="mb-6 text-lg">Find your perfect match today!</p>
 
       <div className="flex gap-4">
