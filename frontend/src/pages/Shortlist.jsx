@@ -10,7 +10,7 @@ export default function Shortlist() {
 
   const fetchShortlisted = async () => {
     try {
-      const res = await axios.get("https://matrimon.onrender.com//api/users/shortlisted", {
+      const res = await axios.get("https://matrimon.onrender.com/api/users/shortlisted", {
         withCredentials: true,
       });
       setShortlisted(res.data);

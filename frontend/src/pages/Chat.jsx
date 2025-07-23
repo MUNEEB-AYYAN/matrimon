@@ -4,7 +4,7 @@ import axios from "axios";
 import ChatBox from "../components/ChatBox";
 import { io } from "socket.io-client";
 
-const socket = io("https://matrimon.onrender.com/"); // ✅ Change this to your deployed backend if needed
+const socket = io("https://matrimon.onrender.com"); // ✅ Change this to your deployed backend if needed
 
 const Chat = () => {
   const { user, token } = useAuth();
@@ -18,7 +18,7 @@ const Chat = () => {
 
     const fetchProfiles = async () => {
       try {
-        const res = await axios.get("https://matrimon.onrender.com//api/users/profiles", {
+        const res = await axios.get("https://matrimon.onrender.com/api/users/profiles", {
           headers: { Authorization: `Bearer ${token}` },
         });
 

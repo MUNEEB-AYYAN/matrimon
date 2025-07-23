@@ -22,7 +22,7 @@ export default function Login() {
 
     try {
       const res = await axios.post(
-        "https://matrimon.onrender.com//api/auth/login",
+        "https://matrimon.onrender.com/api/auth/login",
         form,
         { withCredentials: true }
       );

@@ -57,7 +57,7 @@ export default function Register() {
     setLoading(true);
 
     try {
-      const res = await axios.post("https://matrimon.onrender.com//api/auth/register", form, {
+      const res = await axios.post("https://matrimon.onrender.com/api/auth/register", form, {
         withCredentials: true,
       });
 

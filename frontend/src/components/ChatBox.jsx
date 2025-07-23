@@ -18,7 +18,7 @@ const ChatBox = ({ chatUser, loggedInUser, token, socket }) => {
     const fetchMessages = async () => {
       try {
         const res = await axios.get(
-          `https://matrimon.onrender.com//api/messages/${chatUser._id}`,
+          `https://matrimon.onrender.com/api/messages/${chatUser._id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -59,7 +59,7 @@ const ChatBox = ({ chatUser, loggedInUser, token, socket }) => {
 
     try {
       const res = await axios.post(
-        "https://matrimon.onrender.com//api/messages",
+        "https://matrimon.onrender.com/api/messages",
         messageData,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -79,7 +79,7 @@ const ChatBox = ({ chatUser, loggedInUser, token, socket }) => {
     setIsReporting(true);
     try {
       const res = await axios.post(
-        "https://matrimon.onrender.com//api/users/report",
+        "https://matrimon.onrender.com/api/users/report",
         {
           reportedUserId: chatUser._id,
           reason: "Inappropriate chat behavior", // Optional: Replace with a form/modal later

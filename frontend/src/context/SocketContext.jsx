@@ -7,7 +7,7 @@ export const SocketProvider = ({ children }) => {
   const socket = useRef();
 
   useEffect(() => {
-    socket.current = io("https://matrimon.onrender.com/");
+    socket.current = io("https://matrimon.onrender.com");
 
     return () => {
       socket.current.disconnect();

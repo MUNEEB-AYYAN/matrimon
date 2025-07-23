@@ -9,7 +9,7 @@ export default function AdminDashboard() {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("https://matrimon.onrender.com//api/admin/users", {
+      const res = await axios.get("https://matrimon.onrender.com/api/admin/users", {
         withCredentials: true,
       });
       setUsers(res.data);
@@ -23,8 +23,8 @@ export default function AdminDashboard() {
   const toggleBlock = async (userId, isBlocked) => {
     try {
       const url = isBlocked
-        ? `https://matrimon.onrender.com//api/admin/unblock/${userId}`
-        : `https://matrimon.onrender.com//api/admin/block/${userId}`;
+        ? `https://matrimon.onrender.com/api/admin/unblock/${userId}`
+        : `https://matrimon.onrender.com/api/admin/block/${userId}`;
       await axios.put(url, {}, { withCredentials: true });
       fetchUsers();
     } catch (err) {
@@ -35,7 +35,7 @@ export default function AdminDashboard() {
   const deleteUser = async (userId) => {
     if (!confirm("Are you sure to delete this user?")) return;
     try {
-      await axios.delete(`https://matrimon.onrender.com//api/admin/delete/${userId}`, {
+      await axios.delete(`https://matrimon.onrender.com/api/admin/delete/${userId}`, {
         withCredentials: true,
       });
       fetchUsers();

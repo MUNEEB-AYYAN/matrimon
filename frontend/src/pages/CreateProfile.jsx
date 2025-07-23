@@ -79,7 +79,7 @@ export default function CreateProfile() {
 
     try {
       const res = await axios.post(
-        "https://matrimon.onrender.com//api/users/profile",
+        "https://matrimon.onrender.com/api/users/profile",
         form,
         {
           headers: {
