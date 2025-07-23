@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000/api", // 🔁 Change if your backend runs on a different URL
+  baseURL: "https://matrimon.onrender.com//api", // 🔁 Change if your backend runs on a different URL
   withCredentials: true,
 });
 

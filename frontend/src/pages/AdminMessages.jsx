@@ -11,7 +11,7 @@ export default function AdminMessages() {
   useEffect(() => {
     const fetchPairs = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/messages/pairs", {
+        const res = await axios.get("https://matrimon.onrender.com//api/messages/pairs", {
           withCredentials: true,
         });
         setPairs(res.data);
@@ -27,7 +27,7 @@ export default function AdminMessages() {
   const viewMessages = async (user1Id, user2Id) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/messages/admin/${user1Id}/${user2Id}`,
+        `https://matrimon.onrender.com//api/messages/admin/${user1Id}/${user2Id}`,
         { withCredentials: true }
       );
       setMessages(res.data);

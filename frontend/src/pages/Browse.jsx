@@ -21,7 +21,7 @@ const Browse = () => {
       }
 
       try {
-        const response = await axios.get("http://localhost:5000/api/users/profiles/filtered", {
+        const response = await axios.get("https://matrimon.onrender.com//api/users/profiles/filtered", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

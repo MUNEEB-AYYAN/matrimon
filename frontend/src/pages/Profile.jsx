@@ -64,7 +64,7 @@ export default function Profile() {
     setMsg("");
     try {
       const res = await axios.put(
-        "http://localhost:5000/api/users/profile",
+        "https://matrimon.onrender.com//api/users/profile",
         { ...form, password },
         { withCredentials: true }
       );

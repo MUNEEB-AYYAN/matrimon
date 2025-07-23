@@ -54,7 +54,7 @@ export default function EditProfile() {
     Object.entries(form).forEach(([key, val]) => data.append(key, val));
 
     try {
-      await axios.put("http://localhost:5000/api/users/profile", data, {
+      await axios.put("https://matrimon.onrender.com//api/users/profile", data, {
         withCredentials: true,
         headers: { "Content-Type": "multipart/form-data" },
       });
