@@ -26,6 +26,8 @@ import AdminChatMonitor from "./pages/AdminChatMonitor";
 import VerifyEmail from "./pages/VerifyEmail";
 import ReportChat from "./pages/ReportChat"; // ✅ Added this
 import ServicePage from "./pages/ServicePage";
+import Apply from "./pages/Apply";
+import Career from "./pages/Career";
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
@@ -67,6 +69,8 @@ export default function App() {
             <Route path="/report-user/:userId" element={<ReportChat />} /> {/* ✅ Added route */}
             <Route path="*" element={<NotFound />} />
             <Route path="/service" element={<ServicePage />} />
+            <Route path="/career" element={<Career />} />
+            <Route path="/apply" element={<Apply />} />
 
           </Route>
 

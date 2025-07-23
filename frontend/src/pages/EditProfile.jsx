@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Profile from "./Profile";
 import axiosInstance from "../../utils/axiosInstance";
+import axios from "axios";
 
 export default function EditProfile() {
   const [form, setForm] = useState({

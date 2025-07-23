@@ -17,7 +17,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-base-100 border-t border-base-300 text-pink-600 py-10">
+    <footer className="border-t border-base-300 font-semibold text-white bg-pink-500 py-10">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {/* About Section */}
         <div className="col-span-2">
@@ -52,7 +52,7 @@ const Footer = () => {
             href="https://youtube.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-sm hover:text-red-600"
+            className="inline-flex items-center text-sm hover:text-red-300"
           >
             <FontAwesomeIcon icon={faYoutube} className="mr-2" />
             YouTube
@@ -65,7 +65,7 @@ const Footer = () => {
                 href={platform.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg text-base-content hover:text-primary transition-colors"
+                className="text-lg text-white hover:text-primary transition-colors"
                 aria-label={platform.name}
               >
                 <FontAwesomeIcon icon={platform.icon} />

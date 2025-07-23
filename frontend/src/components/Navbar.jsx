@@ -124,43 +124,43 @@ const Navbar = () => {
       {/* Drawer Side Menu (Mobile Only) */}
       <div className="drawer-side z-50">
         <label htmlFor="nav-drawer" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-64 bg-base-200 min-h-full">
+        <ul className="menu p-4 w-64 bg-base-200 min-h-full space-y-1">
           <li className="text-xl font-bold mb-4">Navigation</li>
           {user ? (
             <>
               <li>
                 <NavLink to="/dashboard" className={({ isActive }) =>
-                  `btn btn-ghost btn-sm rounded-full ${isActive ? "bg-primary text-white" : ""}`}>
+                  `btn btn-ghost btn-sm rounded-full ${isActive ? "bg-pink-600 text-white" : ""}`}>
                   Dashboard
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/browse" className={({ isActive }) =>
-                  `btn btn-ghost btn-sm rounded-full ${isActive ? "bg-primary text-white" : ""}`}>
+                  `btn btn-ghost btn-sm rounded-full ${isActive ? "bg-pink-600 text-white" : ""}`}>
                   Browse
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/chat" className={({ isActive }) =>
-                  `btn btn-ghost btn-sm rounded-full ${isActive ? "bg-primary text-white" : ""}`}>
+                  `btn btn-ghost btn-sm rounded-full ${isActive ? "bg-pink-600 text-white" : ""}`}>
                   Chat
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/shortlisted" className={({ isActive }) =>
-                  `btn btn-ghost btn-sm rounded-full ${isActive ? "bg-primary text-white" : ""}`}>
+                  `btn btn-ghost btn-sm rounded-full ${isActive ? "bg-pink-600 text-white" : ""}`}>
                   Shortlisted
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/profile" className={({ isActive }) =>
-                  `btn btn-ghost btn-sm rounded-full ${isActive ? "bg-primary text-white" : ""}`}>
+                  `btn btn-ghost btn-sm rounded-full ${isActive ? "bg-pink-600 text-white" : ""}`}>
                   Profile
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/settings" className={({ isActive }) =>
-                  `btn btn-ghost btn-sm rounded-full ${isActive ? "bg-primary text-white" : ""}`}>
+                  `btn btn-ghost btn-sm rounded-full ${isActive ? "bg-pink-600 text-white" : ""}`}>
                   Settings
                 </NavLink>
               </li>
@@ -195,7 +195,7 @@ const Navbar = () => {
                 </label>
               </li>
               <li>
-                <button onClick={handleLogout} className="text-red-600">
+                <button onClick={handleLogout} className="text-red-600 pl-20 font-semibold">
                   Logout
                 </button>
               </li>
