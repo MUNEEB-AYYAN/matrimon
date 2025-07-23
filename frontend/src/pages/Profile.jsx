@@ -151,7 +151,7 @@ export default function Profile() {
             className="input input-bordered w-full"
           />
 
-          <button type="submit" className="btn btn-primary w-full" disabled={loading}>
+          <button type="submit" className="btn text-white bg-pink-600 w-full" disabled={loading}>
             {loading ? "Updating..." : "Update Profile"}
           </button>
 

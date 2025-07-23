@@ -32,7 +32,7 @@ const Navbar = () => {
           <label htmlFor="nav-drawer" className="lg:hidden cursor-pointer">
             <FaBars size={22} />
           </label>
-          <Link to="/" className="text-2xl font-bold text-primary">
+          <Link to="/" className="text-2xl text-pink-600 font-bold ">
             💍 NikahForever
           </Link>
         </div>
@@ -41,16 +41,16 @@ const Navbar = () => {
         <div className="hidden lg:flex gap-4 items-center">
           {user && (
             <>
-              <Link to="/dashboard" className="btn btn-ghost btn-sm rounded-full">
+              <Link to="/dashboard" className="btn btn-ghost text-pink-600 btn-sm rounded-full">
                 Dashboard
               </Link>
-              <Link to="/browse" className="btn btn-ghost btn-sm rounded-full">
+              <Link to="/browse" className="btn btn-ghost text-pink-600 btn-sm rounded-full">
                 Browse
               </Link>
-              <Link to="/chat" className="btn btn-ghost btn-sm rounded-full">
+              <Link to="/chat" className="btn btn-ghost text-pink-600 btn-sm rounded-full">
                 Chat
               </Link>
-              <Link to="/shortlisted" className="btn btn-ghost btn-sm rounded-full">
+              <Link to="/shortlisted" className="btn btn-ghost text-pink-600 btn-sm rounded-full">
                 Shortlisted
               </Link>
             </>

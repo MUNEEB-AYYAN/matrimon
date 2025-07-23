@@ -48,7 +48,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center p-4">
       <div className="bg-base-100 shadow-xl rounded-xl p-6 w-full max-w-md">
-        <h2 className="text-xl font-bold mb-4 text-primary text-center">👤 My Profile</h2>
+        <h2 className="text-xl font-bold mb-4 text-pink-600 text-center">👤 My Profile</h2>
 
         <div className="flex flex-col items-center space-y-3 text-base-content">
           <img

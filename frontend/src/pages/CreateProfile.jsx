@@ -109,7 +109,7 @@ export default function CreateProfile() {
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center p-4">
       <div className="bg-base-100 text-base-content p-6 rounded-xl shadow-lg w-full max-w-md space-y-4">
-        <h2 className="text-2xl font-bold text-center">🧑‍💼 Create Your Profile</h2>
+        <h2 className="text-2xl  font-bold text-center">🧑‍💼 Create Your Profile</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -189,7 +189,7 @@ export default function CreateProfile() {
           {error && <p className="text-error text-sm text-center">{error}</p>}
           {success && <p className="text-success text-sm text-center">{success}</p>}
 
-          <button className="btn btn-primary w-full" disabled={loading}>
+          <button className="btn  bg-pink-600 w-full" disabled={loading}>
             {loading ? "Saving..." : "Save Profile"}
           </button>
         </form>

@@ -6,11 +6,7 @@ const Browse = () => {
   const { user, token } = useAuth();
   const [profiles, setProfiles] = useState([]);
   const [filtered, setFiltered] = useState([]);
-  const [filters, setFilters] = useState({
-    gender: "",
-    minAge: "",
-    maxAge: "",
-  });
+  const [filters, setFilters] = useState({gender: "",minAge: "",maxAge: "",});
 
   // Fetch profiles on mount
   useEffect(() => {

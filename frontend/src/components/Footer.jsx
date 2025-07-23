@@ -17,7 +17,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-base-100 border-t border-base-300 text-base-content py-10">
+    <footer className="bg-base-100 border-t border-base-300 text-pink-600 py-10">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {/* About Section */}
         <div className="col-span-2">

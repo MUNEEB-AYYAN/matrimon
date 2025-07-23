@@ -22,7 +22,7 @@ export default function SettingsPage() {
   return (
   <div className="min-h-screen bg-base-200 p-4 flex items-center justify-center">
     <div className="bg-base-100 shadow-xl rounded-xl p-6 w-full max-w-sm space-y-6 text-center">
-      <h2 className="text-2xl font-bold text-primary">⚙️ Settings</h2>
+      <h2 className="text-2xl font-bold text-pink-600">⚙️ Settings</h2>
 
       <div className="flex items-center justify-between">
         <span className="text-base-content">🌙 Toggle Theme</span>

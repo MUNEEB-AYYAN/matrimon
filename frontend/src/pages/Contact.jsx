@@ -20,7 +20,8 @@ const Contactus = () => {
         <p className="mb-1">Need help with your account?</p>
         <p>
           <a href="mailto:support@nikahforever.com" className="text-pink-600 hover:underline font-medium">
-            support@nikahforever.com
+            support@nikahforever.com <br />
+            zk271278 @gmail.com
           </a>
         </p>
       </div>
@@ -30,16 +31,16 @@ const Contactus = () => {
         <p className="mb-1">Monday to Friday, 9am to 5pm</p>
         <p>
           <a href="tel:+11234567890" className="text-pink-600 hover:underline font-medium">
-            +1 (123) 456-7890
+            +91 70587 33358 
           </a>
         </p>
       </div>
 
       <div className="p-6 border border-pink-100 rounded-lg bg-pink-50 shadow-sm">
         <h2 className="text-xl font-semibold text-pink-600 mb-2">Office Address</h2>
-        <p>123 Islamic Way</p>
-        <p>Muslim Town, 10001</p>
-        <p>United States</p>
+        <p>Tekisky </p>
+        <p>Opp Pani taki, Peer Burhaan </p>
+        <p>Nanded</p>
       </div>
     </div>
   );

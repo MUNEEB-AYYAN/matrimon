@@ -86,7 +86,7 @@ const Chat = () => {
               <p className="text-sm opacity-70">{email}</p>
               <button
                 onClick={() => handleSelectChatUser(p)}
-                className="btn btn-primary mt-2"
+                className="btn text-white bg-pink-600 mt-2"
               >
                 Message
               </button>
