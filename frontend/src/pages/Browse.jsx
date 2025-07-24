@@ -97,7 +97,7 @@ const Browse = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((profile) => (
-            <div key={profile._id} className="border p-4 rounded shadow flex">
+            <div key={profile._id} className="border p-4 rounded shadow flex space-x-2">
               <div>
                 <img src={profile.avatar || "https://via.placeholder.com/150"} alt={profile.name} 
                 className="w-28 h-30 rounded-2xl mr-4" />
