@@ -24,11 +24,12 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminUserManagement from "./pages/AdminUserManagement";
 import AdminChatMonitor from "./pages/AdminChatMonitor";
 import VerifyEmail from "./pages/VerifyEmail";
-import ReportChat from "./pages/ReportChat"; // ✅ Added this
+import ReportChat from "./pages/ReportChat";
 import ServicePage from "./pages/ServicePage";
 import Apply from "./pages/Apply";
 import Career from "./pages/Career";
 
+// ✅ Route Guard for Authenticated Users
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
   return user ? children : <Login />;
@@ -44,8 +45,11 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/verify-email" element={<VerifyEmail />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/apply" element={<Apply />} />
 
-          {/* ✅ Authenticated Routes with Layout */}
+          {/* ✅ Protected Routes inside Main Layout */}
           <Route
             element={
               <ProtectedRoute>
@@ -53,7 +57,6 @@ export default function App() {
               </ProtectedRoute>
             }
           >
-            {/* <Route path="/home" element={<Home />} /> */}
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/settings" element={<Settings />} />
@@ -65,17 +68,11 @@ export default function App() {
             <Route path="/shortlisted" element={<Shortlisted />} />
             <Route path="/edit-profile" element={<EditProfile />} />
             <Route path="/create-profile" element={<CreateProfile />} />
-            <Route path="/verify-email" element={<VerifyEmail />} />
-            <Route path="/report-user/:userId" element={<ReportChat />} /> {/* ✅ Added route */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="/report-user/:userId" element={<ReportChat />} />
             <Route path="/service" element={<ServicePage />} />
-            <Route path="/career" element={<Career />} />
-            <Route path="/apply" element={<Apply />} />
-
           </Route>
 
           {/* ✅ Admin-only Routes */}
-            
           <Route
             path="/admin/dashboard"
             element={
@@ -100,6 +97,9 @@ export default function App() {
               </AdminRoute>
             }
           />
+
+          {/* ✅ Fallback Route */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </>

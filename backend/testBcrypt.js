@@ -1,7 +1,7 @@
 // testBcrypt.js
 import bcrypt from 'bcryptjs';
 
-const plainPassword = 'admin123';
+const plainPassword = '123456';
 
 // Step 1: Hash the password
 const hashed = await bcrypt.hash(plainPassword, 10);

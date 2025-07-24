@@ -4,12 +4,11 @@ import { createContext, useContext, useEffect, useState } from "react";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem("token") || null);
-  const [user, setUser] = useState(
-    localStorage.getItem("user")
-      ? JSON.parse(localStorage.getItem("user"))
-      : null
-  );
+  const [token, setToken] = useState(() => localStorage.getItem("token") || null);
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem("user");
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
 
   useEffect(() => {
     if (token) localStorage.setItem("token", token);
@@ -19,7 +18,6 @@ export const AuthProvider = ({ children }) => {
     else localStorage.removeItem("user");
   }, [token, user]);
 
-  // ✅ Define logout function here
   const logout = () => {
     setToken(null);
     setUser(null);
@@ -27,8 +25,10 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("user");
   };
 
+  const isAdmin = user?.isAdmin === true;
+
   return (
-    <AuthContext.Provider value={{ token, setToken, user, setUser, logout }}>
+    <AuthContext.Provider value={{ token, setToken, user, setUser, logout, isAdmin }}>
       {children}
     </AuthContext.Provider>
   );

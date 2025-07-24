@@ -11,7 +11,7 @@ await User.deleteOne({ email: 'admin@example.com' });
 const admin = new User({
   name: 'Admin',
   email: 'admin@example.com',
-  password: await bcrypt.hash('admin123', 10),
+  password: await bcrypt.hash('123456', 10),
   phone: '9876543210',
   isAdmin: true,
 });
