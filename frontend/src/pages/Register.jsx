@@ -78,7 +78,7 @@ export default function Register() {
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center p-4 text-base-content">
       <div className="bg-base-100 shadow-md rounded-lg p-6 w-full max-w-md space-y-4">
-        <h2 className="text-2xl font-bold text-center">📝 Register</h2>
+        <h2 className="text-2xl font-bold text-pink-600 text-center">📝 Register</h2>
 
         <form onSubmit={handleSubmit} className="space-y-3">
           <input
@@ -150,13 +150,13 @@ export default function Register() {
 
           {errorMsg && <div className="text-error text-sm text-center">{errorMsg}</div>}
 
-          <button className="btn btn-primary w-full" disabled={loading}>
+          <button className="btn bg-pink-600 text-white w-full" disabled={loading}>
             {loading ? "Registering..." : "Register"}
           </button>
 
           <p className="text-center">
             Already have an account?{" "}
-            <Link to="/login" className="text-blue-500 font-semibold">
+            <Link to="/login" className="text-pink-600 font-semibold">
               Login
             </Link>
           </p>
